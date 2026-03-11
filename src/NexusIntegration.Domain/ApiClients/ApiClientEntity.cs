@@ -1,6 +1,6 @@
 namespace NexusIntegration.Domain.ApiClients;
 
-public class ApiClients
+public class ApiClientsEntity
 {
     public Guid Id {get; private set;}
     public string Name {get; private set;}
