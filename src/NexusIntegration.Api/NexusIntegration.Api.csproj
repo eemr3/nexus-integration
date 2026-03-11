@@ -10,4 +10,10 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\NexusIntegration.Application\NexusIntegration.Application.csproj" />
+    <ProjectReference Include="..\NexusIntegration.Infrastructure\NexusIntegration.Infrastructure.csproj" />
+    <ProjectReference Include="..\NexusIntegration.Shared\NexusIntegration.Shared.csproj" />
+  </ItemGroup>
+
 </Project>

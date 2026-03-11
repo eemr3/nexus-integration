@@ -3,6 +3,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E16D24BD-2B2B-4DE4-A247-AEF6EA0E2FAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NexusIntegration.Api", "src\NexusIntegration.Api\NexusIntegration.Api.csproj", "{F54DD89C-AA47-47B3-8E18-5BAEF7D236B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NexusIntegration.Application", "src\NexusIntegration.Application\NexusIntegration.Application.csproj", "{9D79A18D-921A-4448-8D59-AFD1279F397C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NexusIntegration.Domain", "src\NexusIntegration.Domain\NexusIntegration.Domain.csproj", "{312FE1FD-5A9E-4697-8810-1D9E4A46E69C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NexusIntegration.Infrastructure", "src\NexusIntegration.Infrastructure\NexusIntegration.Infrastructure.csproj", "{82E30DFC-EBC4-4447-B163-9C523E07BA44}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NexusIntegration.Shared", "src\NexusIntegration.Shared\NexusIntegration.Shared.csproj", "{19A46B6A-E0B8-433F-AA2D-5522BB9F6788}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -10,5 +22,34 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F54DD89C-AA47-47B3-8E18-5BAEF7D236B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F54DD89C-AA47-47B3-8E18-5BAEF7D236B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F54DD89C-AA47-47B3-8E18-5BAEF7D236B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F54DD89C-AA47-47B3-8E18-5BAEF7D236B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D79A18D-921A-4448-8D59-AFD1279F397C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D79A18D-921A-4448-8D59-AFD1279F397C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D79A18D-921A-4448-8D59-AFD1279F397C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D79A18D-921A-4448-8D59-AFD1279F397C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{312FE1FD-5A9E-4697-8810-1D9E4A46E69C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{312FE1FD-5A9E-4697-8810-1D9E4A46E69C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{312FE1FD-5A9E-4697-8810-1D9E4A46E69C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{312FE1FD-5A9E-4697-8810-1D9E4A46E69C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82E30DFC-EBC4-4447-B163-9C523E07BA44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82E30DFC-EBC4-4447-B163-9C523E07BA44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82E30DFC-EBC4-4447-B163-9C523E07BA44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82E30DFC-EBC4-4447-B163-9C523E07BA44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19A46B6A-E0B8-433F-AA2D-5522BB9F6788}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19A46B6A-E0B8-433F-AA2D-5522BB9F6788}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19A46B6A-E0B8-433F-AA2D-5522BB9F6788}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19A46B6A-E0B8-433F-AA2D-5522BB9F6788}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F54DD89C-AA47-47B3-8E18-5BAEF7D236B0} = {E16D24BD-2B2B-4DE4-A247-AEF6EA0E2FAA}
+		{9D79A18D-921A-4448-8D59-AFD1279F397C} = {E16D24BD-2B2B-4DE4-A247-AEF6EA0E2FAA}
+		{312FE1FD-5A9E-4697-8810-1D9E4A46E69C} = {E16D24BD-2B2B-4DE4-A247-AEF6EA0E2FAA}
+		{82E30DFC-EBC4-4447-B163-9C523E07BA44} = {E16D24BD-2B2B-4DE4-A247-AEF6EA0E2FAA}
+		{19A46B6A-E0B8-433F-AA2D-5522BB9F6788} = {E16D24BD-2B2B-4DE4-A247-AEF6EA0E2FAA}
 	EndGlobalSection
 EndGlobal
