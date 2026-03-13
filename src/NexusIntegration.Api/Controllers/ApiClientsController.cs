@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using NexusIntegration.Application.Platform.Dtos;
 using NexusIntegration.Application.Platform.interfaces;
+using NexusIntegration.Application.Platform.Interfaces;
 
 namespace NexusIntegration.Api.Controllers;
 
@@ -10,9 +11,14 @@ namespace NexusIntegration.Api.Controllers;
 public class ApiClientsController : ControllerBase
 {
     private readonly ICreateApiClientUseCase _createUseCase;
-    public ApiClientsController(ICreateApiClientUseCase createUseCase)
+    private readonly IDeactivateClientUseCase _deactivateUseCase;
+    public ApiClientsController(
+        ICreateApiClientUseCase createUseCase,
+    IDeactivateClientUseCase deactivateUseCase)
     {
         _createUseCase = createUseCase;
+        _deactivateUseCase = deactivateUseCase;
+
     }
 
     [HttpPost]
@@ -21,5 +27,13 @@ public class ApiClientsController : ControllerBase
         var result = await _createUseCase.CreateAsync(dto);
 
         return Created($"/api/v1/clients/{result.Id}", result);
+    }
+
+    [HttpPut("{id}/deactivate")]
+    public async Task<IActionResult> Deactivate(Guid id)
+    {
+        var result = await _deactivateUseCase.ExecuteAsync(id);
+
+        return Ok(result);
     }
 }
