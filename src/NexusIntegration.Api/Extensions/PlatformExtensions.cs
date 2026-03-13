@@ -13,6 +13,7 @@ public static class PlatformExtensions
         services.AddScoped<ICreateApiClientUseCase, CreateApiClientUseCase>();
         services.AddScoped<IDeactivateClientUseCase, DeactivateClientUseCase>();
         services.AddScoped<IGenerateTokenUseCase, GenerateTokenUseCase>();
+        services.AddScoped<IRotateSecretUseCase, RotateSecretUseCase>();
 
         return services;
     }
