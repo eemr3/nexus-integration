@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NexusIntegration.Application.Platform.Dtos;
 using NexusIntegration.Application.Platform.interfaces;
@@ -45,5 +46,23 @@ public class ApiClientsController : ControllerBase
         var result = await _rotateSecretUseCase.ExecuteAsync(id);
 
         return Ok(result);
+    }
+
+    [HttpGet]
+    [Authorize]
+    public async Task<IActionResult> GetAll()
+    {
+
+
+        return Ok(new List<object> {
+            new {
+                id = Guid.NewGuid(),
+                name = "Client 1",
+                clientId = "client1",
+                clientSecret = "secret1",
+                active = true
+            }
+
+        });
     }
 }
