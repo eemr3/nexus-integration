@@ -39,7 +39,7 @@ public class CreateApiClientUseCase : ICreateApiClientUseCase
         } while (attempt < MaxClientIdAttempts);
 
         if (attempt >= MaxClientIdAttempts)
-            throw new ConflictException("Não foi possível gerar um ClientId único. Tente novamente.", ErrorCodes.Conflict);
+            throw new ConflictException($"Não foi possível gerar um ClientId único. Tente novamente. {MaxClientIdAttempts} tentativas realizadas.");
 
         var clientSecret = _generator.GenerateClientSecret();
         var clientSecretHash = _secretHasher.Hash(clientSecret);

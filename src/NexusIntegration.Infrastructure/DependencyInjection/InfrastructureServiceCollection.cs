@@ -10,7 +10,9 @@ public static class InfrastructureServiceCollection
         IConfiguration configuration)
     {
         services
-            .AddPostgres(configuration).AddSecurity();
+            .AddPostgres(configuration)
+            .AddSecurity(configuration)
+            .AddOracleInfrastructure(configuration);
 
         return services;
     }

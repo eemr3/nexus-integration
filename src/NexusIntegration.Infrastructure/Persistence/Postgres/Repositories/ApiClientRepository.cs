@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using NexusIntegration.Domain.Platform.ApiClients;
-using NexusIntegration.Infrastructure.Mappers;
+using NexusIntegration.Infrastructure.Persistence.Postgres.Mappers;
 
 namespace NexusIntegration.Infrastructure.Persistence.Postgres.Repositories;
 
@@ -29,7 +29,10 @@ public class ApiClientRepository : IApiClientRepository
 
     public async Task<ApiClientEntity?> GetByIdAsync(Guid id)
     {
-        var result = await _context.ApiClients.FirstOrDefaultAsync(x => x.Id == id);
+        var result = await _context.ApiClients
+            .AsNoTracking()
+            .FirstOrDefaultAsync(x => x.Id == id);
+
         return result is null ? null : result.ToDomain();
     }
 
@@ -37,6 +40,7 @@ public class ApiClientRepository : IApiClientRepository
     {
         var ormEntity = apiClient.ToOrm();
         _context.ApiClients.Update(ormEntity);
+
         await _context.SaveChangesAsync();
         return apiClient;
     }

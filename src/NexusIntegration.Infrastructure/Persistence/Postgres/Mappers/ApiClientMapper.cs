@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using NexusIntegration.Domain.Platform.ApiClients;
 using NexusIntegration.Infrastructure.Persistence.Postgres.OrmEntities;
 
-namespace NexusIntegration.Infrastructure.Mappers;
+namespace NexusIntegration.Infrastructure.Persistence.Postgres.Mappers;
 
 public static class ApiClientMapper
 {
