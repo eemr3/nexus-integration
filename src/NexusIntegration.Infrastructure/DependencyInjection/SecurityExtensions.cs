@@ -14,7 +14,10 @@ public static class SecurityExtensions
         services.AddScoped<IClientSecretHasher, BCryptSecretHasher>();
         services.AddScoped<IClientCredentialsGenerator, ClientCredentialsGenerator>();
 
-        var jwtSettings = configuration.GetSection("Jwt").Get<JwtSettings>();
+        var jwtSettings = configuration
+            .GetSection("Jwt")
+            .Get<JwtSettings>()
+            ?? throw new InvalidOperationException("Jwt settings not configured");
 
         services.AddSingleton(jwtSettings);
 

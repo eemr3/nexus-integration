@@ -1,7 +1,6 @@
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
-using Microsoft.IdentityModel.Tokens.Experimental;
 using NexusIntegration.Api.Extensions;
 using NexusIntegration.Api.Middlewares;
 using NexusIntegration.Infrastructure.Auth;
@@ -30,14 +29,41 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         options.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateIssuer = true,
-
             ValidateAudience = true,
             ValidateIssuerSigningKey = true,
             ValidateLifetime = true,
-
             ValidIssuer = jwtSettings.Issuer,
             ValidAudience = jwtSettings.Audience,
             IssuerSigningKey = new SymmetricSecurityKey(key),
+        };
+
+        // ← adicione este bloco
+        options.Events = new JwtBearerEvents
+        {
+            OnChallenge = async context =>
+            {
+                context.HandleResponse(); // impede o comportamento padrão do ASP.NET
+
+                context.Response.StatusCode = 401;
+                context.Response.ContentType = "application/json";
+
+                await context.Response.WriteAsJsonAsync(new
+                {
+                    error = "UNAUTHORIZED",
+                    message = "Token ausente ou inválido."
+                });
+            },
+            OnForbidden = async context =>
+            {
+                context.Response.StatusCode = 403;
+                context.Response.ContentType = "application/json";
+
+                await context.Response.WriteAsJsonAsync(new
+                {
+                    error = "FORBIDDEN",
+                    message = "Sem permissão para acessar este recurso."
+                });
+            }
         };
     });
 

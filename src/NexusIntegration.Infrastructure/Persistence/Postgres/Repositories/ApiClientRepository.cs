@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using NexusIntegration.Domain.Platform.ApiClients;
-using NexusIntegration.Infrastructure.Mappers;
+using NexusIntegration.Infrastructure.Persistence.Postgres.Mappers;
 
 namespace NexusIntegration.Infrastructure.Persistence.Postgres.Repositories;
 

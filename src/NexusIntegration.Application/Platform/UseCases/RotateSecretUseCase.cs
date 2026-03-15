@@ -23,7 +23,7 @@ public class RotateSecretUseCase : IRotateSecretUseCase
     }
     public async Task<CreateApiClientResponseDto> ExecuteAsync(Guid id)
     {
-        var client = await _repository.GetByIdAsync(id) ?? throw new NotFoundException("Cliente não encontrado");
+        var client = await _repository.GetByIdAsync(id) ?? throw new NotFoundException($"ApiClient não encontrado: {id}");
 
         var newSecret = _generator.GenerateClientSecret();
         var newSecretHash = _hasher.Hash(newSecret);

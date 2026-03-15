@@ -1,5 +1,7 @@
 using NexusIntegration.Application.Auth.Interfaces;
 using NexusIntegration.Application.Auth.UseCases;
+using NexusIntegration.Application.Integrations.DynamicQuery.UseCases;
+using NexusIntegration.Application.Integrations.interfaces;
 using NexusIntegration.Application.Platform.interfaces;
 using NexusIntegration.Application.Platform.Interfaces;
 using NexusIntegration.Application.Platform.UseCases;
@@ -14,6 +16,7 @@ public static class PlatformExtensions
         services.AddScoped<IDeactivateClientUseCase, DeactivateClientUseCase>();
         services.AddScoped<IGenerateTokenUseCase, GenerateTokenUseCase>();
         services.AddScoped<IRotateSecretUseCase, RotateSecretUseCase>();
+        services.AddScoped<IExecuteDynamicQueryUseCase, ExecuteGenericQueryUseCase>();
 
         return services;
     }

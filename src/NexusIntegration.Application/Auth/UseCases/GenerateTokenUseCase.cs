@@ -21,11 +21,11 @@ public class GenerateTokenUseCase : IGenerateTokenUseCase
 
     public async Task<TokenResponseDto> ExecuteAsync(TokenRequestDto request)
     {
-        var client = await _apiClientRepository.GetByClientIdAsync(request.ClientId);
+        var client = await _apiClientRepository.GetByClientIdAsync(request.ClientId)
+        ?? throw new UnauthorizedException("Credenciais inválidas");
 
-        if (client is null) throw new UnauthorizedException("Credenciais inválidas");
-
-        if (client.ClientSecretHash != request.ClientSecret) throw new UnauthorizedException("Credenciais inválidas");
+        if (client.ClientSecretHash != request.ClientSecret)
+            throw new UnauthorizedException("Credenciais inválidas");
 
         var token = _tokenService.GenerateToken(client.Id, client.ClientId, client.AllowedScopes);
 

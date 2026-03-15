@@ -16,7 +16,7 @@ public class DeactivateClientUseCase : IDeactivateClientUseCase
 
     public async Task<CreateApiClientResponseDto> ExecuteAsync(Guid id)
     {
-        var client = await _repository.GetByIdAsync(id) ?? throw new NotFoundException("ApiClient", id.ToString());
+        var client = await _repository.GetByIdAsync(id) ?? throw new NotFoundException($"ApiClient não encontrado: {id}");
 
         client.Deactivate();
         await _repository.SaveAsync(client);

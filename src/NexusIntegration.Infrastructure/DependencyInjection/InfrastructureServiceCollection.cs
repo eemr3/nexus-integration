@@ -11,7 +11,8 @@ public static class InfrastructureServiceCollection
     {
         services
             .AddPostgres(configuration)
-            .AddSecurity(configuration);
+            .AddSecurity(configuration)
+            .AddOracleInfrastructure(configuration);
 
         return services;
     }
